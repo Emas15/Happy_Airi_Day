@@ -262,7 +262,7 @@ export const polaroids: PhotoMemory[] = [
   {
     id: "polaroid-2",
     title: "abaro khushiiii",
-    description: "Polaroid Description 2",
+    description: "no more jhogra",
     date: "Date 2",
     src: "/images/img10.jpeg", // 👈 আলাদা ছবির ফাইল দিন
     alt: "Polaroid scene 2",
@@ -271,7 +271,7 @@ export const polaroids: PhotoMemory[] = [
   {
     id: "polaroid-3",
     title: "ummm yelloww dresss",
-    description: "Polaroid Description 3",
+    description: "chokh e shorena tomar theke",
     date: "Date 3",
     src: "/images/img11.jpeg", // 👈 আলাদা ছবির ফাইল দিন
     alt: "Polaroid scene 3",
@@ -280,7 +280,7 @@ export const polaroids: PhotoMemory[] = [
   {
     id: "polaroid-4",
     title: "fev flower for my fhul",
-    description: "Polaroid Description 3",
+    description: "abar kine dibo insha'Allah",
     date: "Date 3",
     src: "/images/img12.jpeg", // 👈 আলাদা ছবির ফাইল দিন
     alt: "Polaroid scene 3",
@@ -289,7 +289,7 @@ export const polaroids: PhotoMemory[] = [
   {
     id: "polaroid-5",
     title: "tumiiii",
-    description: "Polaroid Description 3",
+    description: "puraa bouu amar",
     date: "Date 3",
     src: "/images/img13.jpeg", // 👈 আলাদা ছবির ফাইল দিন
     alt: "Polaroid scene 3",

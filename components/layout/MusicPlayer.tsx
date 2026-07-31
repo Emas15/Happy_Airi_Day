@@ -16,6 +16,25 @@ export function MusicPlayer() {
     }
   }, [volume]);
 
+  // 🎵 "Open My Hearttt" বাটনে ক্লিক করলে অডিও অটো-প্লে হওয়ার লিসেনার
+  useEffect(() => {
+    const handlePlayMusic = async () => {
+      if (audioRef.current && audioRef.current.paused) {
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (err) {
+          console.log("Audio playback failed:", err);
+        }
+      }
+    };
+
+    window.addEventListener("play-bg-music", handlePlayMusic);
+    return () => {
+      window.removeEventListener("play-bg-music", handlePlayMusic);
+    };
+  }, []);
+
   const toggle = async () => {
     const audio = audioRef.current;
     if (!audio) {
@@ -37,7 +56,15 @@ export function MusicPlayer() {
 
   return (
     <div className="fixed right-4 top-[calc(env(safe-area-inset-top)+1rem)] z-50 flex items-center gap-2">
-      <audio ref={audioRef} src={audioTrack.src} preload="none" loop onPause={() => setIsPlaying(false)} onPlay={() => setIsPlaying(true)} />
+      {/* preload="auto" দেওয়া হয়েছে যেন আগেই ফাইল প্রস্তুত থাকে */}
+      <audio
+        ref={audioRef}
+        src={audioTrack.src}
+        preload="auto"
+        loop
+        onPause={() => setIsPlaying(false)}
+        onPlay={() => setIsPlaying(true)}
+      />
       <div className={`music-dock ${expanded ? "music-dock-expanded" : ""}`}>
         <button
           type="button"
@@ -47,8 +74,17 @@ export function MusicPlayer() {
         >
           <Music2 className="h-4 w-4" aria-hidden="true" />
         </button>
-        <button type="button" className="icon-button" onClick={toggle} aria-label={isPlaying ? "Pause music" : "Play music"}>
-          {isPlaying ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
+        <button
+          type="button"
+          className="icon-button"
+          onClick={toggle}
+          aria-label={isPlaying ? "Pause music" : "Play music"}
+        >
+          {isPlaying ? (
+            <Pause className="h-4 w-4" aria-hidden="true" />
+          ) : (
+            <Play className="h-4 w-4" aria-hidden="true" />
+          )}
         </button>
         <label className="music-volume">
           <Volume2 className="h-4 w-4" aria-hidden="true" />
