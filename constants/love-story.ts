@@ -40,7 +40,7 @@ export const heroCopy: HeroCopy = {
 // Customize the optional music file. Put your mp3 in /public/music and update this path.
 export const audioTrack: AudioTrack = {
   title: "Our song",
-  src: "/music/music.mp3",
+  src: "/images/music.mp3",
 };
 
 // Customize the floating bottom navigation labels and destinations.
